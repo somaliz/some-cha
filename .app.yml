@@ -1,0 +1,28 @@
+---
+apiVersion: "v1"
+kind: "Namespace"
+metadata:
+  name: "ittaxi"
+
+---
+apiVersion: "argoproj.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: "backoffice-client"
+spec:
+  project: "default"
+  source:
+    repoURL: "https://github.com/somaliz/some-cha.git"
+    targetRevision: "master"
+    path: "."
+    helm:
+      valueFiles:
+        - "helm_vars/values-prod.yaml"
+        - "helm_vars/secrets-prod.yaml"
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: "ittaxi"
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

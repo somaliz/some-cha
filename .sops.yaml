@@ -1,0 +1,12 @@
+# creation rules are evaluated sequentially, the first match wins
+creation_rules:
+ # DEV
+ - path_regex: secrets\-dev\.(yaml|yml)$
+   pgp: 'DAFA7AF4D4CC1663322770FD4F45329A32C5B829'
+ # STG
+ - path_regex: secrets\-stg\.(yaml|yml)$
+   pgp: 'DAFA7AF4D4CC1663322770FD4F45329A32C5B829'
+ # PROD
+ - path_regex: secrets\-prod\.(yaml|yml)$
+   pgp: 'DAFA7AF4D4CC1663322770FD4F45329A32C5B829'
+

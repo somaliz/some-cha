@@ -1,0 +1,10 @@
+# Default values for backoffice-client.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespace: ittaxi
+
+labels:
+  app: backoffice-client
+  version: "1.0.0-alpha.3"
+annotations:
+  x: y
